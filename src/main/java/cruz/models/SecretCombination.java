@@ -2,12 +2,10 @@ package cruz.models;
 
 public class SecretCombination extends Combination {
     private static final int LENGTH = 4;
-	
 
 	public SecretCombination() {
-
 		this.colors = new Color[LENGTH];
-		var combination = this.generateRandomString();
+		String combination = this.generateRandomString();
 		
 		createCombination(combination);
 	}
@@ -26,12 +24,10 @@ public class SecretCombination extends Combination {
 				}
 			}
 		}
-
         return new Result(whites,blacks);
 	}
 	
 	private String generateRandomString() {
-
 		String result = "";
 		String availableColors = Color.getAvailableColors();
 	    
@@ -41,7 +37,6 @@ public class SecretCombination extends Combination {
 	    	result += electedColor;
 	        availableColors = availableColors.replaceFirst("" + electedColor, "");
 	    }
-
 	    return result;
 	}
 	

@@ -20,5 +20,4 @@ public class AttemptView {
         Attempt attempt=new Attempt(proposedCombination,result);
         this.game.addAttempt(attempt);
     }
-    
 }

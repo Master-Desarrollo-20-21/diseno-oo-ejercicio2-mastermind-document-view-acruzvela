@@ -10,14 +10,14 @@ public class Attempt {
 	}
 
 	public boolean isWinner() {
-		if (this.result.getBlacks() == 4) {
-			return true;
-		}
-		return false;
+		return this.result.getBlacks() == 4;
 	}
 
-	@Override
-	public String toString() {
-		return this.proposedCombination.toString()+" ---> "+ this.result.getBlacks()+" blacks - "+this.result.getWhites()+" whites.";
+	public ProposedCombination getProposedCombination(){
+		return this.proposedCombination;
+	}
+
+	public Result getResult(){
+		return this.result;
 	}
 }

@@ -15,7 +15,6 @@ public abstract class Combination {
 		for (Color color : this.colors) {
 			textColors = textColors.concat(color.toString());
 		}
-
 		return textColors;
 	}
 

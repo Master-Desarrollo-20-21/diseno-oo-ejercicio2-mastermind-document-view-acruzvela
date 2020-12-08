@@ -1,5 +1,6 @@
 package cruz;
 
+import cruz.models.Game;
 import cruz.views.MastermindView;
 
 /**
@@ -8,9 +9,8 @@ import cruz.views.MastermindView;
  */
 public class Mastermind 
 {
-
   private void play() {
-		new MastermindView().interact();
+		new MastermindView(new Game()).interact();
 	}
   
   public static void main(String[] args) {

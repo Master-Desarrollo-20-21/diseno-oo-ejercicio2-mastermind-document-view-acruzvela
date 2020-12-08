@@ -1,12 +1,18 @@
 package cruz.views;
 
+import cruz.models.Game;
 import cruz.utils.Console;
 
 public class MastermindView {
+    private Game game;
+
+    public MastermindView(Game game){
+        this.game=game;
+    }
 
     public void interact() {
         do {
-            new GameView().interact();
+            new GameView(game).interact();
     	}while(this.isResume());
     }
 
@@ -15,10 +21,9 @@ public class MastermindView {
         do
           answer = new Console().read(Message.RESUME.getMessage());
         while(!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N"));
+        if (answer.equalsIgnoreCase("Y")){
+            this.game.reset();
+        }
         return answer.equalsIgnoreCase("Y");
     }
-
-
-
-    
 }

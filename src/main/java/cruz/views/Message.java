@@ -10,7 +10,8 @@ public enum Message {
     LOSER("You have exceeded the number of attempts :-(\nSecret combination: #secretcombination\n"),
     ALLOWED_COLORS("Allowed colors: #allowedcolors"),
     PROPOSED_COMBINATION("Propose a combination: "),
-    SECRET_COMBINATION("XXXX");
+    SECRET_COMBINATION("XXXX"),
+    RESULT("#proposedcombination ---> #blacks blacks - #whites whites.");
 
     private String message="";
     private Console console=new Console();
@@ -35,6 +36,10 @@ public enum Message {
     public void write(String key,String value) {
         assert this == Message.LOSER || this==Message.ALLOWED_COLORS;
 		console.write(this.message.replaceAll(key, "" + value));
+    }
+    
+    public void write(String proposedcombination, int blacks, int whites) {
+        assert this == Message.RESULT;
+        console.write(this.message.replaceFirst("#proposedcombination", "" + proposedcombination).replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
 	}
-
 }

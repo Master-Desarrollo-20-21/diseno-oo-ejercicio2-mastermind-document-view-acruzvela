@@ -8,6 +8,10 @@ public class Game {
     private ArrayList<Attempt> attempts;
 
     public Game(){
+        this.reset();
+    }
+
+    public void reset(){
         secretCombination=new SecretCombination();
         attempts=new ArrayList<Attempt>();
     }
@@ -27,5 +31,4 @@ public class Game {
     public SecretCombination getSecretCombination(){
       return this.secretCombination;
     }
-
 }

@@ -4,9 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ProposedCombination extends Combination {
-    
-    
-
     public boolean isValidLength(String proposedString) {
 		return proposedString.length()==this.LENGTH;
     }
@@ -28,5 +25,4 @@ public class ProposedCombination extends Combination {
         }
         return true;
     }
-
 }

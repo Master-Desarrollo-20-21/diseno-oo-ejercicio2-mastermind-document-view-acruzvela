@@ -15,30 +15,24 @@ public enum Color {
 	}
 
 	public static String getAvailableColors() {
-		
 		String availableColors = "";
 		
 		for (Color color: Color.values()) {
 			availableColors+= color.toString();
 		}
-		
 		return availableColors;
 	}
 	
 	public static Color getColorByChar(char colorLetter) {
-		
 		String textColor = String.valueOf(colorLetter);
 		
 		for (Color color: Color.values()) {
-			
 			String  currentTextColor= color.toString();
 			if (currentTextColor.equals(textColor)) {
 				return color;
 			}
 		}
-		
 		return null;
-		
 	}
 	
 	public boolean isSameColorAs(Color color) {
@@ -49,5 +43,4 @@ public enum Color {
 	public String toString() {
 		return String.valueOf(this.colorLetter);
 	}
-
 }

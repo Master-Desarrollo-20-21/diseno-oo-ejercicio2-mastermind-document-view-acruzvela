@@ -21,5 +21,4 @@ public class ErrorView {
 			new Console().write(ErrorView.MESSAGES[this.error.ordinal()]+"\n");
 		}
 	}
-
 }

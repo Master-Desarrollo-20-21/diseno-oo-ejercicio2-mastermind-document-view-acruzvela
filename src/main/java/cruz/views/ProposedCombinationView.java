@@ -20,7 +20,6 @@ public class ProposedCombinationView {
             Message.ALLOWED_COLORS.write("#allowedcolors",Color.getAvailableColors());
             proposedString=console.read(Message.PROPOSED_COMBINATION.getMessage());
             error=this.isValid(proposedString);
-            
         }while(!error.isNull());
 		this.proposedCombination.createCombination(proposedString);
     }

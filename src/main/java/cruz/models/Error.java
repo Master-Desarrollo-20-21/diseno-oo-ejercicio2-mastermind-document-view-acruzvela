@@ -31,5 +31,4 @@ public enum Error {
     public boolean isNull() {
 		return this == Error.NULL_ERROR;
 	}
-
 }

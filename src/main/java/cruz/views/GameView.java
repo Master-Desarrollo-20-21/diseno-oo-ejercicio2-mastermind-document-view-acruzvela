@@ -8,44 +8,39 @@ public class GameView {
     private Game game;
     private AttemptView attemptView;
 
-    public GameView(){
-        this.game=new Game();
+    public GameView(Game game){
+        this.game=game;
         attemptView=new AttemptView(game);
     }
 
     public void interact() {
-        printTitle();
+        Message.TITLE.write();
         do {
-            printAttempts1();
+            printHeadAttempts();
             this.attemptView.interact();
-            printAttempts2();
+            printAttempts();
         }while(haveMoreAttempts());
         finish();
     }
-    
-    private void printTitle(){
-      Message.TITLE.write();
-    }
 
-    private void printAttempts1(){
+    private void printHeadAttempts(){
       Message.ATTEMPTS.write(this.game.getAttempts().size());
       Message.SECRET_COMBINATION.write();
     }
 
-    private void printAttempts2() {
+    private void printAttempts() {
         Console console=new Console();
         for(Attempt attempt: this.game.getAttempts()) {
-          console.write(attempt.toString());
+          Message.RESULT.write(attempt.getProposedCombination().toString(),
+          attempt.getResult().getBlacks(),attempt.getResult().getWhites());
         }
         console.write("\n");
       }
-
 
     public boolean haveMoreAttempts() {
         return !game.lastAttempt().isWinner() && this.game.getAttempts().size() < Game.ATTEMPTS_NUMBER;
     }
   
-
     private void finish(){
         if(game.lastAttempt().isWinner()) {
           Message.WINNER.write();
